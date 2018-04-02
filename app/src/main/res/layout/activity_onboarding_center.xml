@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?colorPrimary"
+    android:orientation="vertical"
+    >
+
+    <LinearLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingTop="144dp"
+        tools:ignore="HardcodedText"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="16dp"
+            android:alpha="0"
+            android:text="Hello There"
+            android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title.Inverse"
+            android:textColor="@android:color/black"
+            android:textSize="22sp"
+            tools:alpha="1"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="8dp"
+            android:alpha="0"
+            android:gravity="center"
+            android:text="Are you feeling hungry ?"
+            android:textColor="@android:color/black"
+            android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Subtitle.Inverse"
+            android:textSize="20sp"
+            tools:alpha="1"
+            />
+
+        <Button
+            android:id="@+id/btn_choice1"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:textSize="17dp"
+            android:textColor="#ffffff"
+            android:layout_marginTop="48dp"
+            android:scaleX="0"
+            android:onClick="order_now"
+            android:scaleY="0"
+            android:background="@drawable/button_style"
+            android:text="Order Now"
+            />
+
+        <Button
+            android:id="@+id/btn_choice2"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
+            android:textColor="#ffffff"
+            android:textSize="17dp"
+            android:onClick="get_direction"
+            android:scaleX="0"
+            android:scaleY="0"
+            android:background="@drawable/button_style"
+            android:text="Get Directions"
+            />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/img_logo"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:src="@drawable/logo"
+        tools:visibility="gone"
+        />
+</FrameLayout>

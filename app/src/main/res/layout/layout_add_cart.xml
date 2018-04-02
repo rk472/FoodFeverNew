@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="300dp"
+    android:background="@drawable/modals_back"
+    android:orientation="vertical"
+    android:layout_height="310dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:background="@color/colorAccent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_height="40dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="5dp"
+            android:textSize="22dp"
+            android:textColor="#ffffff"
+            android:text="Add to cart"/>
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_margin="5dp"
+        android:layout_height="258dp">
+
+        <TextView
+            android:id="@+id/cart_item_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:textSize="19dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:text="Item Name" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="40dp"
+            android:id="@+id/qty_lin"
+            android:orientation="horizontal"
+            android:layout_below="@id/cart_item_name"
+            android:layout_marginTop="20dp">
+            <EditText
+                android:layout_width="wrap_content"
+                android:padding="5dp"
+                android:id="@+id/cart_item_quantity"
+                android:inputType="number"
+                android:layout_height="40dp"
+                android:textSize="20dp"
+                android:textAlignment="center"
+                android:text="1"
+                android:hint="Quantity"
+                android:background="@drawable/item_back"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:layout_marginLeft="20dp"
+                android:text="X"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:layout_marginLeft="20dp"
+                android:text="Rs. "/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/cart_item_price"
+                android:textSize="20dp"
+                android:text="0.00"/>
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:id="@+id/divider_view"
+            android:background="@drawable/button_style"
+            android:layout_below="@id/qty_lin"
+            android:layout_marginTop="15dp"
+        />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/divider_view"
+            android:id="@+id/cart_item_total_price"
+            android:layout_marginTop="10dp"
+            android:textSize="20dp"
+            android:text="Rs. 0.00"/>
+        <Button
+            android:id="@+id/add_cart"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:textColor="#ffffff"
+            android:gravity="center"
+            android:paddingRight="70dp"
+            android:drawableLeft="@drawable/vect_add_cart"
+            android:paddingLeft="80dp"
+            android:background="@drawable/button_style"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:text="Add to Cart" />
+
+    </RelativeLayout>
+</LinearLayout>

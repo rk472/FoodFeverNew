@@ -7,8 +7,14 @@ package com.studio.smarters.foodfever;
 public class Items {
 
     int price;
+    String desc;
 
     public Items() {
+    }
+
+    public Items(int price, String desc) {
+        this.price = price;
+        this.desc = desc;
     }
 
     public int getPrice() {
@@ -19,8 +25,11 @@ public class Items {
         this.price = price;
     }
 
-    public Items(int price) {
+    public String getDesc() {
+        return desc;
+    }
 
-        this.price = price;
+    public void setDesc(String desc) {
+        this.desc = desc;
     }
 }

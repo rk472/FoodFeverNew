@@ -2,16 +2,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
-    android:background="@drawable/menu_back"
-    tools:context="com.studio.smarters.foodfever.ChineseFragment">
+    tools:context="com.studio.smarters.foodfever.AllMenuItemFragment">
 
     <!-- TODO: Update blank fragmdesc_layoutyout -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
-        android:textSize="20dp"
-        android:text="Chinese" />
+        android:text="@string/hello_blank_fragment" />
 
 </FrameLayout>
