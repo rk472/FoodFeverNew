@@ -21,6 +21,7 @@ import android.view.ViewGroup;
 
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class MenuActivity extends AppCompatActivity implements MainCoursekFragment.OnFragmentInteractionListener{
@@ -32,6 +33,7 @@ public class MenuActivity extends AppCompatActivity implements MainCoursekFragme
     private Boolean isFabOpen = false;
     private FloatingActionButton fab,fab1,fab2;
     private Animation fab_open,fab_close,rotate_forward,rotate_backward;
+    private LinearLayout lin1,lin2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,6 +81,8 @@ public class MenuActivity extends AppCompatActivity implements MainCoursekFragme
                 startActivity(i);
             }
         });
+        lin1=findViewById(R.id.lin1);
+        lin2=findViewById(R.id.lin2);
 
 
 
@@ -140,8 +144,8 @@ public class MenuActivity extends AppCompatActivity implements MainCoursekFragme
         if(isFabOpen){
 
             fab.startAnimation(rotate_backward);
-            fab1.startAnimation(fab_close);
-            fab2.startAnimation(fab_close);
+            lin1.startAnimation(fab_close);
+            lin2.startAnimation(fab_close);
             fab1.setClickable(false);
             fab2.setClickable(false);
             isFabOpen = false;
@@ -149,8 +153,8 @@ public class MenuActivity extends AppCompatActivity implements MainCoursekFragme
         } else {
 
             fab.startAnimation(rotate_forward);
-            fab1.startAnimation(fab_open);
-            fab2.startAnimation(fab_open);
+            lin1.startAnimation(fab_open);
+            lin2.startAnimation(fab_open);
             fab1.setClickable(true);
             fab2.setClickable(true);
             isFabOpen = true;
