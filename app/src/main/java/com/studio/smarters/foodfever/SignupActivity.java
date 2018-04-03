@@ -59,7 +59,7 @@ public class SignupActivity extends AppCompatActivity {
                             d.child(uid).child("name").setValue(name);
                             d.child(uid).child("email").setValue(email);
                             d.child(uid).child("phone_no").setValue(phone);
-                            Intent i=new Intent(SignupActivity.this,MainActivity.class);
+                            Intent i=new Intent(SignupActivity.this,MenuActivity.class);
                             startActivity(i);
                             finish();
                         }else{

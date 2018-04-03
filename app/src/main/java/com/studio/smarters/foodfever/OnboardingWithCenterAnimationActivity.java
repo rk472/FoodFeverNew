@@ -1,6 +1,7 @@
 package com.studio.smarters.foodfever;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.annotation.Nullable;
 import android.support.v4.view.ViewCompat;
 import android.support.v4.view.ViewPropertyAnimatorCompat;
@@ -40,8 +41,8 @@ public class OnboardingWithCenterAnimationActivity extends AppCompatActivity {
     }
 
     private void animate() {
-        ImageView logoImageView = (ImageView) findViewById(R.id.img_logo);
-        ViewGroup container = (ViewGroup) findViewById(R.id.container);
+        ImageView logoImageView = findViewById(R.id.img_logo);
+        ViewGroup container = findViewById(R.id.container);
 
         ViewCompat.animate(logoImageView)
                 .translationY(-250)
@@ -68,11 +69,13 @@ public class OnboardingWithCenterAnimationActivity extends AppCompatActivity {
     }
 
     public void order_now(View view) {
-        startActivity(new Intent(OnboardingWithCenterAnimationActivity.this, MenuActivity.class));
+        startActivity(new Intent(OnboardingWithCenterAnimationActivity.this, LoginActivity.class));
         finish();
     }
 
     public void get_direction(View view) {
-        Toast.makeText(this, "Getting Directions ...", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(android.content.Intent.ACTION_VIEW,
+                Uri.parse("http://maps.google.com/maps?daddr=20.2955511,85.8431379"));
+        startActivity(intent);
     }
 }
