@@ -6,12 +6,45 @@
     android:background="@drawable/menu_back"
     tools:context="com.studio.smarters.foodfever.OthersFragment">
 
-    <!-- TODO: Update blank fragmdesc_layoutyout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
-        android:textSize="20dp"
-        android:text="others" />
+        android:orientation="vertical">
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="dal"
+            android:onClick="others"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="fish khajan"
+            android:onClick="others"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="murg bahar"
+            android:onClick="others"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="prawn"
+            android:onClick="others"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="rasila ghost"
+            android:onClick="others"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="rice"
+            android:onClick="others"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="roti-naan"
+            android:onClick="others"/>
+    </LinearLayout>
 
 </FrameLayout>

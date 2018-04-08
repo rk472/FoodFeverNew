@@ -6,12 +6,25 @@
     android:background="@drawable/menu_back"
     tools:context="com.studio.smarters.foodfever.ChineseFragment">
 
-    <!-- TODO: Update blank fragmdesc_layoutyout -->
-    <TextView
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
-        android:textSize="20dp"
-        android:text="Chinese" />
-
+        android:orientation="vertical">
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="noodles"
+            android:onClick="chinese"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="rice"
+            android:onClick="chinese"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="soup"
+            android:onClick="chinese"/>
+    </LinearLayout>
 </FrameLayout>

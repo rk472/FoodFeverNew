@@ -29,7 +29,10 @@
         <activity
             android:name=".CartActivity"
             android:theme="@style/AppTheme" />
-        <activity android:name=".OrderHistoryActivity"></activity>
+        <activity android:name=".OrderHistoryActivity"
+            android:theme="@style/AppTheme"/>
+        <activity android:name=".SubMenuActivity"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>

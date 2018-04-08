@@ -2,15 +2,13 @@ package com.studio.smarters.foodfever;
 
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -24,36 +22,37 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class DesertFragment extends Fragment {
-    View root;
-    DatabaseReference dessertRef;
-    FirebaseAuth mAuth;
-    AlertDialog dialog1;
-    RecyclerView list;
+public class SubMenuActivity extends AppCompatActivity {
+    private DatabaseReference subMenuRef;
+    private FirebaseAuth mAuth;
+    private AlertDialog dialog1;
+    private RecyclerView list;
     private ProgressDialog progressDialog;
-
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        root=inflater.inflate(R.layout.fragment_desert, container, false);
-        dessertRef= FirebaseDatabase.getInstance().getReference().child("items").child("dessert");
-        dessertRef.keepSynced(true);
-        mAuth = FirebaseAuth.getInstance();
-        progressDialog=new ProgressDialog(getActivity());
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_sub_menu);
+        progressDialog=new ProgressDialog(this);
         progressDialog.setTitle("Please Wait");
         progressDialog.setMessage("Please Wait while Your Menu is being loaded..");
         progressDialog.setCanceledOnTouchOutside(false);
         progressDialog.setCancelable(false);
         progressDialog.show();
-        FirebaseRecyclerAdapter<Items,DessertViewHolder> f=new FirebaseRecyclerAdapter<Items, DessertViewHolder>(
+        list=findViewById(R.id.sub_menu_list);
+        list.setLayoutManager(new LinearLayoutManager(this));
+        list.setHasFixedSize(true);
+        String path=getIntent().getExtras().getString("path");
+        subMenuRef= FirebaseDatabase.getInstance().getReference(path);
+        subMenuRef.keepSynced(true);
+        mAuth = FirebaseAuth.getInstance();
+        FirebaseRecyclerAdapter<Items,DesertFragment.DessertViewHolder> f=new FirebaseRecyclerAdapter<Items, DesertFragment.DessertViewHolder>(
                 Items.class,
                 R.layout.items_row,
-                DessertViewHolder.class,
-                dessertRef
+                DesertFragment.DessertViewHolder.class,
+                subMenuRef
         ) {
             @Override
-            protected void populateViewHolder(DessertViewHolder viewHolder, final Items model, int position) {
+            protected void populateViewHolder(DesertFragment.DessertViewHolder viewHolder, final Items model, int position) {
                 progressDialog.dismiss();
                 final String name=getRef(position).getKey();
                 final int price=model.getPrice();
@@ -63,7 +62,7 @@ public class DesertFragment extends Fragment {
                     @Override
                     public void onClick(View view) {
                         //Toast.makeText(getActivity().getApplicationContext(), "Clicked", Toast.LENGTH_SHORT).show();
-                        AlertDialog.Builder mBuilder = new AlertDialog.Builder(getActivity());
+                        AlertDialog.Builder mBuilder = new AlertDialog.Builder(SubMenuActivity.this);
                         View mView = getLayoutInflater().inflate(R.layout.layout_add_cart,null);
                         //Setting Views
                         TextView iName = mView.findViewById(R.id.cart_item_name);
@@ -95,7 +94,7 @@ public class DesertFragment extends Fragment {
                             @Override
                             public void onClick(View view) {
                                 if(iQuantity.getText().toString().equals("")){
-                                    Toast.makeText(getActivity(), "Quantity Can't be blank...", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getApplicationContext(), "Quantity Can't be blank...", Toast.LENGTH_SHORT).show();
                                     iQuantity.setText("1");
                                 }else{
                                     //Toast.makeText(getActivity(), "Added To Cart...", Toast.LENGTH_SHORT).show();
@@ -139,7 +138,7 @@ public class DesertFragment extends Fragment {
                         @Override
                         public void onClick(View view) {
                             //Toast.makeText(getActivity().getApplicationContext(), "Clicked", Toast.LENGTH_SHORT).show();
-                            AlertDialog.Builder mBuilder = new AlertDialog.Builder(getActivity());
+                            AlertDialog.Builder mBuilder = new AlertDialog.Builder(SubMenuActivity.this);
                             View mView = getLayoutInflater().inflate(R.layout.layout,null);
                             TextView iName = mView.findViewById(R.id.item_name);
                             TextView iDesc = mView.findViewById(R.id.item_desc);
@@ -153,18 +152,14 @@ public class DesertFragment extends Fragment {
                 }
             }
         };
-        list=root.findViewById(R.id.dessert_list);
         list.setAdapter(f);
-        list.setLayoutManager(new LinearLayoutManager(getActivity()));
-        list.setHasFixedSize(true);
 
-
-        return root;
     }
-    public static class DessertViewHolder extends RecyclerView.ViewHolder{
+
+    public static class SubMenuViewHolder extends RecyclerView.ViewHolder{
         TextView nameText,priceText,descText;
         Button addButon;
-        public DessertViewHolder(View itemView) {
+        public SubMenuViewHolder(View itemView) {
             super(itemView);
             nameText=itemView.findViewById(R.id.item_name);
             priceText=itemView.findViewById(R.id.item_price);
@@ -176,7 +171,4 @@ public class DesertFragment extends Fragment {
             priceText.setText(price+"");
         }
     }
-
-
-
 }
