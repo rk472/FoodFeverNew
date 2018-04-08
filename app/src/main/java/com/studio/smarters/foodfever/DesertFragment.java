@@ -16,12 +16,17 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class DesertFragment extends Fragment {
     View root;
     DatabaseReference dessertRef;
+    FirebaseAuth mAuth;
     AlertDialog dialog,dialog1;
     RecyclerView list;
     @Override
@@ -30,6 +35,7 @@ public class DesertFragment extends Fragment {
         // Inflate the layout for this fragment
         root=inflater.inflate(R.layout.fragment_desert, container, false);
         dessertRef= FirebaseDatabase.getInstance().getReference().child("items").child("dessert");
+        mAuth = FirebaseAuth.getInstance();
         FirebaseRecyclerAdapter<Items,DessertViewHolder> f=new FirebaseRecyclerAdapter<Items, DessertViewHolder>(
                 Items.class,
                 R.layout.items_row,
@@ -65,9 +71,9 @@ public class DesertFragment extends Fragment {
                             @Override
                             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                                 if("".equals(iQuantity.getText().toString())){
-                                    iTotalPrice.setText("Rs. 0");
+                                    iTotalPrice.setText("0");
                                 }else{
-                                    iTotalPrice.setText("Rs. "+(price*Integer.parseInt(iQuantity.getText().toString())));
+                                    iTotalPrice.setText(""+(price*Integer.parseInt(iQuantity.getText().toString())));
                                 }
                             }
                             @Override
@@ -81,7 +87,32 @@ public class DesertFragment extends Fragment {
                                     Toast.makeText(getActivity(), "Quantity Can't be blank...", Toast.LENGTH_SHORT).show();
                                     iQuantity.setText("1");
                                 }else{
-                                    Toast.makeText(getActivity(), "Added To Cart...", Toast.LENGTH_SHORT).show();
+                                    //Toast.makeText(getActivity(), "Added To Cart...", Toast.LENGTH_SHORT).show();
+                                    DatabaseReference mCartRef = FirebaseDatabase.getInstance().getReference().child("cart");
+                                    String cartkey = mCartRef.child(mAuth.getCurrentUser().getUid()).push().getKey();
+                                    mCartRef.child(mAuth.getCurrentUser().getUid()).child(cartkey).child("item_name").setValue(name);
+                                    mCartRef.child(mAuth.getCurrentUser().getUid()).child(cartkey).child("item_quantity").setValue(iQuantity.getText().toString());
+                                    mCartRef.child(mAuth.getCurrentUser().getUid()).child(cartkey).child("item_total_price").setValue(iTotalPrice.getText().toString());
+                                    mCartRef.child(mAuth.getCurrentUser().getUid()).child(cartkey).child("item_price").setValue(model.getPrice());
+
+                                    final DatabaseReference mTotalRef = FirebaseDatabase.getInstance().getReference().child("cart").child("total_cart");
+                                    mTotalRef.addValueEventListener(new ValueEventListener() {
+                                        @Override
+                                        public void onDataChange(DataSnapshot dataSnapshot) {
+                                            if(dataSnapshot.hasChild(mAuth.getCurrentUser().getUid()))
+                                            {
+                                                String valOld = dataSnapshot.child(mAuth.getCurrentUser().getUid()).child("total_price").getValue().toString();
+                                                int tot_val = Integer.parseInt(valOld)+Integer.parseInt(iTotalPrice.getText().toString());
+                                                mTotalRef.child(mAuth.getCurrentUser().getUid()).child("total_price").setValue(tot_val+"");
+                                            }else{
+                                                mTotalRef.child(mAuth.getCurrentUser().getUid()).child("total_price").setValue(iTotalPrice.getText().toString());
+                                            }
+                                            mTotalRef.removeEventListener(this);
+                                        }
+                                        @Override
+                                        public void onCancelled(DatabaseError databaseError) {
+                                        }
+                                    });
                                     dialog1.dismiss();
                                 }
                             }

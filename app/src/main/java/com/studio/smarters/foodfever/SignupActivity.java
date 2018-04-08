@@ -59,6 +59,7 @@ public class SignupActivity extends AppCompatActivity {
                             d.child(uid).child("name").setValue(name);
                             d.child(uid).child("email").setValue(email);
                             d.child(uid).child("phone_no").setValue(phone);
+                            FirebaseDatabase.getInstance().getReference("cart/total_cart/"+uid+"/total_price").setValue("0");
                             Intent i=new Intent(SignupActivity.this,MenuActivity.class);
                             startActivity(i);
                             finish();

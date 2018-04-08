@@ -1,9 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/menu_back"
     tools:context="com.studio.smarters.foodfever.CartActivity">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cart Empty"
+        android:textSize="20dp"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        android:id="@+id/empty_cart"/>
 
-</LinearLayout>
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="120dp"
+        android:layout_marginLeft="22dp"
+        android:layout_marginRight="22dp"
+        android:layout_marginTop="40dp"
+        android:id="@+id/cart_list"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="110dp"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:layout_alignParentBottom="true">
+        <TextView
+            android:layout_width="wrap_content"
+            android:id="@+id/total_cart_price"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="00000"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:id="@+id/proceed_to_checkout"
+            android:padding="10dp"
+            android:text="Proceed To Checkout"
+            android:background="@drawable/button_style"
+            />
+    </LinearLayout>
+
+</RelativeLayout>
