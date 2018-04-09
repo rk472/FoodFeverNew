@@ -124,6 +124,7 @@ public class SubMenuActivity extends AppCompatActivity {
                                         }
                                     });
                                     dialog1.dismiss();
+                                    Toast.makeText(SubMenuActivity.this, "Item Added to Cart Succesfully...", Toast.LENGTH_SHORT).show();
                                 }
                             }
                         });

@@ -13,7 +13,7 @@
        <Button
            android:layout_width="match_parent"
            android:layout_height="wrap_content"
-           android:text="I ndian"
+           android:text="Indian"
            android:onClick="mainCourse"/>
        <Button
            android:layout_width="match_parent"

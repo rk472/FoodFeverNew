@@ -125,6 +125,7 @@ public class DesertFragment extends Fragment {
                                         }
                                     });
                                     dialog1.dismiss();
+                                    Toast.makeText(getActivity(), "Item Added to Cart Succesfully...", Toast.LENGTH_SHORT).show();
                                 }
                             }
                         });
