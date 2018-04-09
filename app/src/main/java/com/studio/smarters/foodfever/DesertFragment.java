@@ -57,8 +57,16 @@ public class DesertFragment extends Fragment {
                 progressDialog.dismiss();
                 final String name=getRef(position).getKey();
                 final int price=model.getPrice();
+                //dessertRef.child(name).child("availability").setValue("Available");
                 final String description = model.getDesc();
                 viewHolder.setData(name,price);
+                if(model.getAvailability().equalsIgnoreCase("Available")){
+                    viewHolder.addButon.setVisibility(View.VISIBLE);
+                    viewHolder.notBtn.setVisibility(View.GONE);
+                }else{
+                    viewHolder.addButon.setVisibility(View.GONE);
+                    viewHolder.notBtn.setVisibility(View.VISIBLE);
+                }
                 viewHolder.addButon.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -164,13 +172,14 @@ public class DesertFragment extends Fragment {
     }
     public static class DessertViewHolder extends RecyclerView.ViewHolder{
         TextView nameText,priceText,descText;
-        Button addButon;
+        Button addButon,notBtn;
         public DessertViewHolder(View itemView) {
             super(itemView);
             nameText=itemView.findViewById(R.id.item_name);
             priceText=itemView.findViewById(R.id.item_price);
             addButon=itemView.findViewById(R.id.add_button);
             descText=itemView.findViewById(R.id.item_desc);
+            notBtn=itemView.findViewById(R.id.not_button);
         }
         public void setData(String name,int price){
             nameText.setText(name);

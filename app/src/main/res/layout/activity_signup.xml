@@ -4,46 +4,86 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.studio.smarters.foodfever.SignupActivity"
     android:gravity="center"
-    android:orientation="vertical">
+    android:background="@drawable/menu_back"
+    android:orientation="vertical"
+    tools:context="com.studio.smarters.foodfever.SignupActivity">
+    <ImageView
+        android:layout_width="170dp"
+        android:layout_height="170dp"
+        android:src="@drawable/logo"/>
     <EditText
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
         android:id="@+id/signup_name"
-        android:hint="Name"/>
-    <EditText
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/signup_email"
-        android:hint="Email"
-        android:inputType="textEmailAddress"/>
-    <EditText
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:inputType="number"
-        android:id="@+id/signup_phone"
-        android:hint="Phone number(+91****)"/>
-    <EditText
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:id="@+id/signup_password"
-        android:hint="Password"/>
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/signup_button"
-        android:text="Sign up"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Already Have an Account?Log in"
-        android:textSize="18dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:background="@drawable/item_back"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
         android:layout_marginTop="20dp"
-        android:id="@+id/login_link"
-        android:textColor="@color/colorAccent"/>
+        android:hint="Name" />
 
+    <EditText
+        android:id="@+id/signup_email"
+        android:layout_width="match_parent"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:background="@drawable/item_back"
+        android:layout_marginTop="20dp"
+        android:layout_height="50dp"
+        android:hint="Email"
+        android:inputType="textEmailAddress" />
+
+    <EditText
+        android:id="@+id/signup_phone"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:paddingLeft="10dp"
+        android:background="@drawable/item_back"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginTop="20dp"
+        android:paddingRight="10dp"
+        android:hint="Phone number(+91****)"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/signup_password"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="25dp"
+        android:background="@drawable/item_back"
+        android:layout_marginRight="25dp"
+        android:layout_marginTop="20dp"
+        android:layout_height="50dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:hint="Password"
+        android:inputType="textPassword" />
+
+    <Button
+        android:id="@+id/signup_button"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:textColor="#ffffff"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/button_style"
+        android:textSize="18dp"
+        android:text="Sign up" />
+
+    <TextView
+        android:id="@+id/login_link"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:padding="10dp"
+        android:text="Already Have an Account ? Log in"
+        android:textColor="@color/colorAccent"
+        android:textSize="18dp" />
 
 
 </LinearLayout>
