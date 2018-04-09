@@ -55,6 +55,7 @@ public class SubMenuActivity extends AppCompatActivity {
             protected void populateViewHolder(DesertFragment.DessertViewHolder viewHolder, final Items model, int position) {
                 progressDialog.dismiss();
                 final String name=getRef(position).getKey();
+                subMenuRef.child(name).child("availability").setValue("Available");
                 final int price=model.getPrice();
                 final String description = model.getDesc();
                 viewHolder.setData(name,price);
@@ -97,7 +98,6 @@ public class SubMenuActivity extends AppCompatActivity {
                                     Toast.makeText(getApplicationContext(), "Quantity Can't be blank...", Toast.LENGTH_SHORT).show();
                                     iQuantity.setText("1");
                                 }else{
-                                    //Toast.makeText(getActivity(), "Added To Cart...", Toast.LENGTH_SHORT).show();
                                     DatabaseReference mCartRef = FirebaseDatabase.getInstance().getReference().child("cart");
                                     String cartkey = mCartRef.child(mAuth.getCurrentUser().getUid()).push().getKey();
                                     mCartRef.child(mAuth.getCurrentUser().getUid()).child(cartkey).child("item_name").setValue(name);
@@ -138,7 +138,6 @@ public class SubMenuActivity extends AppCompatActivity {
                     viewHolder.descText.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            //Toast.makeText(getActivity().getApplicationContext(), "Clicked", Toast.LENGTH_SHORT).show();
                             AlertDialog.Builder mBuilder = new AlertDialog.Builder(SubMenuActivity.this);
                             View mView = getLayoutInflater().inflate(R.layout.layout,null);
                             TextView iName = mView.findViewById(R.id.item_name);
@@ -157,19 +156,5 @@ public class SubMenuActivity extends AppCompatActivity {
 
     }
 
-    public static class SubMenuViewHolder extends RecyclerView.ViewHolder{
-        TextView nameText,priceText,descText;
-        Button addButon;
-        public SubMenuViewHolder(View itemView) {
-            super(itemView);
-            nameText=itemView.findViewById(R.id.item_name);
-            priceText=itemView.findViewById(R.id.item_price);
-            addButon=itemView.findViewById(R.id.add_button);
-            descText=itemView.findViewById(R.id.item_desc);
-        }
-        public void setData(String name,int price){
-            nameText.setText(name);
-            priceText.setText(price+"");
-        }
-    }
+
 }
