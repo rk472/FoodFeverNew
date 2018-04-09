@@ -120,7 +120,7 @@ public class CartActivity extends AppCompatActivity {
         }
     }
     public void order(View v){
-        final DatabaseReference orderRef=FirebaseDatabase.getInstance().getReference().child("orders").push();
+        final DatabaseReference orderRef=FirebaseDatabase.getInstance().getReference().child("orders") .push();
         final String orderKey=orderRef.getKey();
         mRef.child(mAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
             @Override
@@ -137,18 +137,29 @@ public class CartActivity extends AppCompatActivity {
                 }
                 mRef.child(mAuth.getCurrentUser().getUid()).removeValue();
                 mRef.child(mAuth.getCurrentUser().getUid()).removeEventListener(this);
-                orderRef.child("uid").setValue(mAuth.getCurrentUser().getUid());
-                orderRef.child("time").setValue(ServerValue.TIMESTAMP);
-                orderRef.child("status").setValue("pending");
-                FirebaseDatabase.getInstance().getReference("users/"+mAuth.getCurrentUser().getUid()+"/order_history").push().child("order_id").setValue(orderKey);
-                FirebaseDatabase.getInstance().getReference("pending_orders").push().child("order_id").setValue(orderKey);
-                totalRef.addValueEventListener(new ValueEventListener() {
+                FirebaseDatabase.getInstance().getReference().child("users").child(mAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
                     @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                        total=dataSnapshot.child("total_price").getValue().toString();
-                        totalRef.child("total_price").setValue("0");
-                        orderRef.child("total_price").setValue(total);
-                        totalRef.removeEventListener(this);
+                    public void onDataChange(DataSnapshot dataSnapshot1) {
+                        orderRef.child("name").setValue(dataSnapshot1.child("name").getValue().toString());
+                        orderRef.child("time").setValue(ServerValue.TIMESTAMP);
+                        orderRef.child("status").setValue("pending");
+                        FirebaseDatabase.getInstance().getReference("users/"+mAuth.getCurrentUser().getUid()+"/order_history").push().child("order_id").setValue(orderKey);
+                        FirebaseDatabase.getInstance().getReference("pending_orders").push().child("order_id").setValue(orderKey);
+                        totalRef.addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(DataSnapshot dataSnapshot) {
+                                total=dataSnapshot.child("total_price").getValue().toString();
+                                totalRef.child("total_price").setValue("0");
+                                orderRef.child("total_price").setValue(total);
+                                totalRef.removeEventListener(this);
+                            }
+
+                            @Override
+                            public void onCancelled(DatabaseError databaseError) {
+
+                            }
+                        });
+                        FirebaseDatabase.getInstance().getReference().child("users").child(mAuth.getCurrentUser().getUid()).removeEventListener(this);
                     }
 
                     @Override
@@ -156,6 +167,7 @@ public class CartActivity extends AppCompatActivity {
 
                     }
                 });
+
             }
 
             @Override
