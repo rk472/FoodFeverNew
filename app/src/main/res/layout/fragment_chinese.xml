@@ -10,21 +10,34 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:gravity="center_vertical"
         android:orientation="vertical">
         <Button
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="80dp"
+            android:layout_margin="30dp"
+            android:textSize="20dp"
+            android:background="@drawable/button_submenu_style"
             android:text="noodles"
-            android:onClick="chinese"/>
+            android:onClick="chinese"
+            tools:ignore="OnClick" />
         <Button
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_margin="30dp"
+            android:background="@drawable/button_submenu_style"
+            android:textSize="20dp"
+            android:layout_height="80dp"
             android:text="rice"
-            android:onClick="chinese"/>
+            android:onClick="chinese"
+            tools:ignore="OnClick" />
         <Button
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="80dp"
+            android:layout_margin="30dp"
+            android:textSize="20dp"
+            android:background="@drawable/button_submenu_style"
             android:text="soup"
-            android:onClick="chinese"/>
+            android:onClick="chinese"
+            tools:ignore="OnClick" />
     </LinearLayout>
 </FrameLayout>

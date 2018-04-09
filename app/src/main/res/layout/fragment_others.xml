@@ -9,40 +9,82 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:gravity="center"
         android:orientation="vertical">
         <Button
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:textSize="20dp"
+            android:background="@drawable/button_submenu_style"
+            tools:ignore="OnClick"
             android:text="dal"
             android:onClick="others"/>
         <Button
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="15dp"
+            android:textSize="20dp"
+            android:background="@drawable/button_submenu_style"
             android:text="fish khajan"
+            tools:ignore="OnClick"
             android:onClick="others"/>
         <Button
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="15dp"
+            android:textSize="20dp"
+            android:background="@drawable/button_submenu_style"
             android:text="murg bahar"
+            tools:ignore="OnClick"
             android:onClick="others"/>
         <Button
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="15dp"
+            android:textSize="20dp"
+            android:background="@drawable/button_submenu_style"
+            tools:ignore="OnClick"
             android:text="prawn"
             android:onClick="others"/>
         <Button
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="15dp"
+            android:textSize="20dp"
+            android:background="@drawable/button_submenu_style"
             android:text="rasila ghost"
+            tools:ignore="OnClick"
             android:onClick="others"/>
         <Button
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="15dp"
+            android:textSize="20dp"
+            android:background="@drawable/button_submenu_style"
             android:text="rice"
+            tools:ignore="OnClick"
             android:onClick="others"/>
         <Button
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="15dp"
+            android:textSize="20dp"
+            android:background="@drawable/button_submenu_style"
+            tools:ignore="OnClick"
             android:text="roti-naan"
             android:onClick="others"/>
     </LinearLayout>

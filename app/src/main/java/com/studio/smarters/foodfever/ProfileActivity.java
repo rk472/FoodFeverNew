@@ -15,7 +15,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class ProfileActivity extends AppCompatActivity {
-    TextView nameText,userIdText,phoneText,emailText;
+    TextView nameText,phoneText,emailText;
     Button historyButton,logOut;
     FirebaseAuth mAuth;
     String uid,name,email,phone;
@@ -25,7 +25,6 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
         nameText=findViewById(R.id.profile_name);
-        userIdText=findViewById(R.id.profile_user);
         phoneText=findViewById(R.id.profile_phone);
         emailText=findViewById(R.id.profile_email);
         historyButton=findViewById(R.id.history_button);
@@ -39,10 +38,9 @@ public class ProfileActivity extends AppCompatActivity {
                 name=dataSnapshot.child("name").getValue().toString();
                 email=dataSnapshot.child("email").getValue().toString();
                 phone=dataSnapshot.child("phone_no").getValue().toString();
-                nameText.setText("Name : "+name);
-                emailText.setText("Email : "+email);
-                phoneText.setText("Phone no : "+phone);
-                userIdText.setText("User Id : "+uid);
+                nameText.setText(name);
+                emailText.setText(email);
+                phoneText.setText(phone);
             }
 
             @Override
@@ -56,6 +54,7 @@ public class ProfileActivity extends AppCompatActivity {
                 mAuth.signOut();
                 Intent i=new Intent(ProfileActivity.this,LoginActivity.class);
                 startActivity(i);
+                finishAffinity();
                 finish();
             }
         });

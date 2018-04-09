@@ -9,32 +9,63 @@
    <LinearLayout
        android:layout_width="match_parent"
        android:layout_height="match_parent"
+       android:layout_gravity="center"
+       android:gravity="center"
        android:orientation="vertical">
        <Button
            android:layout_width="match_parent"
-           android:layout_height="wrap_content"
+           android:layout_height="60dp"
+           android:layout_marginLeft="30dp"
+           android:layout_marginRight="30dp"
+           android:textSize="20dp"
+           android:background="@drawable/button_submenu_style"
+           tools:ignore="OnClick"
            android:text="Indian"
            android:onClick="mainCourse"/>
        <Button
            android:layout_width="match_parent"
-           android:layout_height="wrap_content"
+           android:layout_height="60dp"
+           android:layout_marginLeft="30dp"
+           android:layout_marginRight="30dp"
+           android:layout_marginTop="40dp"
+           android:textSize="20dp"
+           tools:ignore="OnClick"
+           android:background="@drawable/button_submenu_style"
            android:text="non veg"
            android:onClick="mainCourse"/>
        <Button
            android:layout_width="match_parent"
-           android:layout_height="wrap_content"
+           android:layout_height="60dp"
+           android:layout_marginLeft="30dp"
+           android:layout_marginRight="30dp"
+           android:layout_marginTop="40dp"
+           android:textSize="20dp"
+           tools:ignore="OnClick"
+           android:background="@drawable/button_submenu_style"
            android:text="sea food"
            android:onClick="mainCourse"/>
        <Button
            android:layout_width="match_parent"
-           android:layout_height="wrap_content"
+           android:layout_height="60dp"
+           android:layout_marginLeft="30dp"
+           android:layout_marginRight="30dp"
+           android:layout_marginTop="40dp"
+           android:textSize="20dp"
+           android:background="@drawable/button_submenu_style"
            android:text="tandoori"
-           android:onClick="mainCourse"/>
+           android:onClick="mainCourse"
+           tools:ignore="OnClick" />
        <Button
            android:layout_width="match_parent"
-           android:layout_height="wrap_content"
+           android:layout_height="60dp"
+           android:layout_marginLeft="30dp"
+           android:layout_marginRight="30dp"
+           android:layout_marginTop="40dp"
+           android:textSize="20dp"
+           android:background="@drawable/button_submenu_style"
            android:text="veg(chinese)"
-           android:onClick="mainCourse"/>
+           android:onClick="mainCourse"
+           tools:ignore="OnClick"/>
    </LinearLayout>
 
 </FrameLayout>

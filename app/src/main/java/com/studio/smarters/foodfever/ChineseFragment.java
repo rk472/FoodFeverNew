@@ -15,7 +15,6 @@ public class ChineseFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         root=inflater.inflate(R.layout.fragment_chinese, container, false);
-
         return root;
     }
 

@@ -9,32 +9,62 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:gravity="center"
         android:orientation="vertical">
         <Button
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:textSize="20dp"
+            android:background="@drawable/button_submenu_style"
             android:text="non veg"
-            android:onClick="snacks"/>
+            android:onClick="snacks"
+            tools:ignore="OnClick" />
         <Button
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="35dp"
+            android:textSize="20dp"
+            android:background="@drawable/button_submenu_style"
             android:text="salad"
-            android:onClick="snacks"/>
+            android:onClick="snacks"
+            tools:ignore="OnClick" />
         <Button
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="35dp"
+            android:textSize="20dp"
+            android:background="@drawable/button_submenu_style"
             android:text="seafood"
-            android:onClick="snacks"/>
+            android:onClick="snacks"
+            tools:ignore="OnClick" />
         <Button
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="35dp"
+            android:textSize="20dp"
+            android:background="@drawable/button_submenu_style"
             android:text="tandoori"
-            android:onClick="snacks"/>
+            android:onClick="snacks"
+            tools:ignore="OnClick" />
         <Button
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="35dp"
+            android:textSize="20dp"
+            android:background="@drawable/button_submenu_style"
             android:text="veg"
-            android:onClick="snacks"/>
+            android:onClick="snacks"
+            tools:ignore="OnClick" />
     </LinearLayout>
 
 </FrameLayout>
