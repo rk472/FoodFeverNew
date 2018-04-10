@@ -55,7 +55,7 @@ public class SubMenuActivity extends AppCompatActivity {
             protected void populateViewHolder(DesertFragment.DessertViewHolder viewHolder, final Items model, int position) {
                 progressDialog.dismiss();
                 final String name=getRef(position).getKey();
-                subMenuRef.child(name).child("availability").setValue("Available");
+                //subMenuRef.child(name).child("availability").setValue("Available");
                 final int price=model.getPrice();
                 final String description = model.getDesc();
                 viewHolder.setData(name,price);
